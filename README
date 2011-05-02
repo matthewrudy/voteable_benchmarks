@@ -1,0 +1,83 @@
+== Machine
+
+Macbook Pro
+2.4 Ghz Intel Core 2 Duo
+4GB 1067 MHz DDR3
+
+MySQL 5.1.41 Community Server
+MongoDB 1.8.1
+Ruby 1.9.2p180
+
+
+== Limitation
+
+Current benchmark code run a for loop to create / destroy votes sequently.
+It does not utilize database 100%.
+
+
+== Without additional indexing
+
+./run.rb active_record skip_additional_indexes
+./run.rb naive_mongoid skip_additional_indexes
+./run.rb voteable_mongoid skip_additional_indexes
+
+
+ActiveRecordSolution: creating 10000 votes ...
+      user     system      total        real
+ 29.600000   2.230000  31.830000 ( 52.593815)
+
+ActiveRecordSolution: unvoting 10000 votes ...
+      user     system      total        real
+ 20.870000   2.160000  23.030000 ( 43.167654)
+
+
+NaiveMongoidSolution: creating 10000 votes ...
+      user     system      total        real
+ 27.440000   2.150000  29.590000 ( 38.936153)
+
+NaiveMongoidSolution: unvoting 10000 votes ...
+      user     system      total        real
+ 24.590000   2.090000  26.680000 ( 35.123051)
+
+
+VoteableMongoidSolution: creating 10000 votes ...
+      user     system      total        real
+  6.270000   0.370000   6.640000 ( 13.694603)
+
+VoteableMongoidSolution: unvoting 10000 votes ...
+      user     system      total        real
+  1.820000   0.150000   1.970000 (  2.421133)
+
+
+== With additional indexing
+
+./run.rb active_record
+./run.rb naive_mongoid
+./run.rb voteable_mongoid
+
+
+ActiveRecordSolution: creating 10000 votes ...
+      user     system      total        real
+ 29.970000   2.220000  32.190000 ( 54.353359)
+
+ActiveRecordSolution: unvoting 10000 votes ...
+      user     system      total        real
+ 21.760000   2.110000  23.870000 ( 45.678792)
+
+
+NaiveMongoidSolution: creating 10000 votes ...
+      user     system      total        real
+ 48.930000   4.510000  53.440000 ( 71.224532)
+
+NaiveMongoidSolution: unvoting 10000 votes ...
+      user     system      total        real
+ 46.430000   4.500000  50.930000 ( 68.262817)
+
+
+VoteableMongoidSolution: creating 10000 votes ...
+      user     system      total        real
+ 20.740000   2.130000  22.870000 ( 39.969472)
+
+VoteableMongoidSolution: unvoting 10000 votes ...
+      user     system      total        real
+ 16.420000   1.890000  18.310000 ( 26.662275)
