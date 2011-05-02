@@ -28,6 +28,5 @@ ActiveRecord::Schema.define(:version => 1) do
     add_index "posts", ["votes_point"], :name => "index_posts_on_votes_point"
   end
   
-  add_index "votes", ["user_id"], :name => "index_votes_on_user_id"
-  add_index "votes", ["post_id"], :name => "index_votes_on_post_id"  
+  add_index "votes", ["user_id", "post_id"], :name => "index_votes_on_user_id_post_id"
 end
