@@ -18,7 +18,7 @@ module VoteableMongoidSolution
   end
   
   def self.init_data
-    load File.expand_path(File.dirname(__FILE__) + '/../seeds.rb')
+    load File.expand_path(File.dirname(__FILE__) + '/../shared/seeds.rb')
     @user_ids = User.all.map(&:id)
     @post_ids = Post.all.map(&:id)
   end

@@ -2,7 +2,7 @@ require 'active_record'
 require 'active_support'
 require 'mysql2'
 
-require File.expand_path(File.dirname(__FILE__) + '/voteable')
+require File.expand_path(File.dirname(__FILE__) + '/../shared/voteable')
 require File.expand_path(File.dirname(__FILE__) + '/models/user')
 require File.expand_path(File.dirname(__FILE__) + '/models/post')
 require File.expand_path(File.dirname(__FILE__) + '/models/vote')
@@ -31,7 +31,7 @@ module ActiveRecordSolution
   end
   
   def self.init_data
-    load File.expand_path(File.dirname(__FILE__) + '/../seeds.rb')
+    load File.expand_path(File.dirname(__FILE__) + '/../shared/seeds.rb')
     @user_ids = User.all.map(&:id)
     @post_ids = Post.all.map(&:id)
   end
