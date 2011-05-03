@@ -1,6 +1,6 @@
 class Post
   include Mongoid::Document
-  include Mongoid::Voteable
+  include Mongo::Voteable
 
   field :title
   field :content

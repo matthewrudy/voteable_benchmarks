@@ -1,4 +1,5 @@
-require 'voteable_mongoid'
+require 'mongoid'
+require 'voteable_mongo'
 
 require File.expand_path(File.dirname(__FILE__) + '/../shared/abstract_solution')
 require File.expand_path(File.dirname(__FILE__) + '/models/user')
