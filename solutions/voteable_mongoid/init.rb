@@ -1,10 +1,12 @@
-require 'mongoid'
 require 'voteable_mongoid'
 
+require File.expand_path(File.dirname(__FILE__) + '/../shared/abstract_solution')
 require File.expand_path(File.dirname(__FILE__) + '/models/user')
 require File.expand_path(File.dirname(__FILE__) + '/models/post')
 
 module VoteableMongoidSolution
+  extend AbstractSolution  
+
   def self.create_database
     Mongoid.configure do |config|
       name = 'voteable_benchmarks'
@@ -17,25 +19,21 @@ module VoteableMongoidSolution
     Mongoid::database.connection.drop_database(Mongoid::database.name)
   end
   
-  def self.init_data
-    load File.expand_path(File.dirname(__FILE__) + '/../shared/seeds.rb')
-    @user_ids = User.all.map(&:id)
-    @post_ids = Post.all.map(&:id)
-  end
-  
-  def self.create_votes
-    @user_ids.each do |user_id|
-      @post_ids.each do |post_id|
-        Post.vote(:voter_id => user_id, :votee_id => post_id, :value => :up, :return_votee => true)
-      end
-    end
+  def self.vote(user_id, post_id, happy)
+    Post.vote(
+      :voter_id => user_id,
+      :votee_id => post_id,
+      :value => happy ? :up : :down,
+      :return_votee => true
+    )
   end
 
-  def self.unvote_votes
-    @user_ids.each do |user_id|
-      @post_ids.each do |post_id|
-        Post.vote(:voter_id => user_id, :votee_id => post_id, :value => :up, :unvote => true)
-      end
-    end
+  def self.unvote(user_id, post_id, happy)
+    Post.vote(
+      :voter_id => user_id, 
+      :votee_id => post_id, 
+      :value => happy ? :up : :down,
+      :unvote => true
+    )
   end
 end

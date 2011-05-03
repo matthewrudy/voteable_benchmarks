@@ -2,6 +2,7 @@ require 'active_record'
 require 'active_support'
 require 'mysql2'
 
+require File.expand_path(File.dirname(__FILE__) + '/../shared/abstract_solution')
 require File.expand_path(File.dirname(__FILE__) + '/../shared/voteable')
 require File.expand_path(File.dirname(__FILE__) + '/models/user')
 require File.expand_path(File.dirname(__FILE__) + '/models/post')
@@ -9,6 +10,8 @@ require File.expand_path(File.dirname(__FILE__) + '/models/vote')
 
 
 module ActiveRecordSolution
+  extend AbstractSolution
+  
   def self.create_database
     puts 'MySQL database'
 
@@ -30,25 +33,11 @@ module ActiveRecordSolution
     load File.expand_path(File.dirname(__FILE__) + '/schema.rb')
   end
   
-  def self.init_data
-    load File.expand_path(File.dirname(__FILE__) + '/../shared/seeds.rb')
-    @user_ids = User.all.map(&:id)
-    @post_ids = Post.all.map(&:id)
+  def self.vote(user_id, post_id, value)
+    Post.vote(user_id, post_id, value)
   end
   
-  def self.create_votes
-    @user_ids.each do |user_id|
-      @post_ids.each do |post_id|
-        Post.vote(user_id, post_id, true)
-      end
-    end
-  end
-
-  def self.unvote_votes
-    @user_ids.each do |user_id|
-      @post_ids.each do |post_id|
-        Post.unvote(user_id, post_id)
-      end
-    end
+  def self.unvote(user_id, post_id, value = nil)
+    Post.unvote(user_id, post_id)
   end
 end

@@ -1,6 +1,7 @@
 ActiveRecord::Schema.define(:version => 1) do
   create_table "users", :force => true do |t|
     t.string   "name"
+    t.boolean  "happy"
   end
 
   add_index "users", ["id"], :name => "index_users_on_id"
