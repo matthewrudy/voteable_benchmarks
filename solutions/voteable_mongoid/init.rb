@@ -34,7 +34,8 @@ module VoteableMongoidSolution
       :voter_id => user_id, 
       :votee_id => post_id, 
       :value => happy ? :up : :down,
-      :unvote => true
+      :unvote => true,
+      :return_votee => true
     )
   end
 end

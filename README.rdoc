@@ -53,11 +53,11 @@ NaiveMongoidSolution: unvoting 10000 votes ...
 
 VoteableMongoidSolution: creating 10000 votes ...
       user     system      total        real
-  6.520000   0.360000   6.880000 ( 13.947601)
+  5.550000   0.340000   5.890000 ( 12.668750)
 
 VoteableMongoidSolution: unvoting 10000 votes ...
       user     system      total        real
-  1.930000   0.130000   2.060000 (  2.171655)
+  5.390000   0.320000   5.710000 ( 10.270138)
 
 
 === With additional indexing
@@ -87,8 +87,8 @@ NaiveMongoidSolution: unvoting 10000 votes ...
 
 VoteableMongoidSolution: creating 10000 votes ...
       user     system      total        real
- 23.730000   2.200000  25.930000 ( 42.121811)
+ 21.310000   2.130000  23.440000 ( 38.093970)
 
 VoteableMongoidSolution: unvoting 10000 votes ...
       user     system      total        real
- 17.970000   1.860000  19.830000 ( 27.042609)
+ 20.980000   2.110000  23.090000 ( 35.216096)
