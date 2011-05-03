@@ -16,13 +16,13 @@ Ruby 1.9.2p180
 == Solutions
 * ActiveRecordSolution: Use votes table, store counters (votes_counts, up_votes_count, down_votes_count) and votes_point in posts
 * NaiveMongoidSolution: Equivalent to ActiveRecordSolution (use votes collection ...)
-* VoteableMongoidSolution: Use voteable_mongo gem
+* VoteableMongoidSolution: Use https://github.com/vinova/voteable_mongo gem
 
 == Without additional indexing
 
-./run.rb active_record skip_additional_indexes
-./run.rb naive_mongoid skip_additional_indexes
-./run.rb voteable_mongoid skip_additional_indexes
+  ./run.rb active_record skip_additional_indexes
+  ./run.rb naive_mongoid skip_additional_indexes
+  ./run.rb voteable_mongoid skip_additional_indexes
 
 Note: skip_additional_indexes mean skip creating indexes that don't speed up voting and unvoting processes (e.g. counters, votes_point)
 
@@ -55,9 +55,9 @@ VoteableMongoidSolution: unvoting 10000 votes ...
 
 == With additional indexing
 
-./run.rb active_record
-./run.rb naive_mongoid
-./run.rb voteable_mongoid
+  ./run.rb active_record
+  ./run.rb naive_mongoid
+  ./run.rb voteable_mongoid
 
 
 ActiveRecordSolution: creating 10000 votes ...
