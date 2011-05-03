@@ -5,7 +5,7 @@ Macbook Pro
 4GB 1067 MHz DDR3
 
 MySQL 5.1.41 Community Server
-MongoDB 1.8.1
+MongoDB 1.9.0
 Ruby 1.9.2p180
 
 
@@ -24,29 +24,29 @@ It does not utilize database 100%.
 
 ActiveRecordSolution: creating 10000 votes ...
       user     system      total        real
- 29.610000   2.170000  31.780000 ( 52.534653)
+ 30.000000   2.250000  32.250000 ( 55.331350)
 
 ActiveRecordSolution: unvoting 10000 votes ...
       user     system      total        real
- 20.080000   1.950000  22.030000 ( 40.175906)
+ 20.320000   1.990000  22.310000 ( 41.124231)
 
 
 NaiveMongoidSolution: creating 10000 votes ...
       user     system      total        real
- 21.760000   1.510000  23.270000 ( 30.547010)
+ 21.950000   1.500000  23.450000 ( 30.221955)
 
 NaiveMongoidSolution: unvoting 10000 votes ...
       user     system      total        real
- 18.860000   1.440000  20.300000 ( 25.269255)
+ 20.210000   1.580000  21.790000 ( 28.148016)
 
 
 VoteableMongoidSolution: creating 10000 votes ...
       user     system      total        real
-  6.050000   0.340000   6.390000 ( 13.391298)
+  6.520000   0.360000   6.880000 ( 13.947601)
 
 VoteableMongoidSolution: unvoting 10000 votes ...
       user     system      total        real
-  1.800000   0.130000   1.930000 (  2.085269)
+  1.930000   0.130000   2.060000 (  2.171655)
 
 
 == With additional indexing
@@ -58,26 +58,26 @@ VoteableMongoidSolution: unvoting 10000 votes ...
 
 ActiveRecordSolution: creating 10000 votes ...
       user     system      total        real
- 28.840000   2.130000  30.970000 ( 51.070650)
+ 28.820000   2.110000  30.930000 ( 50.597191)
 
 ActiveRecordSolution: unvoting 10000 votes ...
       user     system      total        real
- 20.320000   2.020000  22.340000 ( 41.701261)
+ 20.550000   2.010000  22.560000 ( 41.575874)
 
 
 NaiveMongoidSolution: creating 10000 votes ...
       user     system      total        real
- 43.300000   3.820000  47.120000 ( 62.293679)
+ 43.360000   3.780000  47.140000 ( 58.762646)
 
 NaiveMongoidSolution: unvoting 10000 votes ...
       user     system      total        real
- 40.420000   3.790000  44.210000 ( 57.840167)
+ 40.460000   3.760000  44.220000 ( 56.190134)
 
 
 VoteableMongoidSolution: creating 10000 votes ...
       user     system      total        real
- 20.490000   2.050000  22.540000 ( 38.970604)
+ 23.730000   2.200000  25.930000 ( 42.121811)
 
 VoteableMongoidSolution: unvoting 10000 votes ...
       user     system      total        real
- 16.230000   1.820000  18.050000 ( 25.732336)
+ 17.970000   1.860000  19.830000 ( 27.042609)
