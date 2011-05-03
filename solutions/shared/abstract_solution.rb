@@ -15,31 +15,31 @@ module AbstractSolution
     @users = (1..TOTAL_USERS).map do |i|
       User.create(
         :name => 'Alex Nguyen',
-        :happy => i > TOTAL_USERS / 2
+        :happy => i % 2 == 0
       )
     end
 
-     @post_ids = (1..TOTAL_POSTS).map do
+     @posts = (1..TOTAL_POSTS).map do
       Post.create(
         :title => 'Voteable benchmarks',
         :content => 'Compare performance of voting solutions for SQL and MongoDB'
-      ).id
+      )
     end
   end
   
   def create_votes
     @users.each do |user|
-      @post_ids.each do |post_id|
+      @posts.each do |post|
         # Happy user will give positive vote
-        vote(user.id, post_id, user.happy)
+        vote(user.id, post.id, user.happy)
       end
     end
   end
 
   def unvote_votes
     @users.each do |user|
-      @post_ids.each do |post_id|
-        unvote(user.id, post_id, user.happy)
+      @posts.each do |post|
+        unvote(user.id, post.id, user.happy)
       end
     end
   end
