@@ -3,8 +3,7 @@
 Current benchmark code run a for loop to create / destroy votes sequently.
 It does not utilize database 100%.
 
-Results are validated after after each vote / unvote so validation take some time too.
-
+Results are validated after each vote / unvote and take some time too.
 
 == Solutions
 
