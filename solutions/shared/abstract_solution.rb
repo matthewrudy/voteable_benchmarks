@@ -20,7 +20,7 @@ module AbstractSolution
     @users = (1..TOTAL_USERS).map do |i|
       User.create(
         :name => 'Alex Nguyen',
-        :happy => i % 2 == 0
+        :happy => rand > 0.5
       )
     end
 
