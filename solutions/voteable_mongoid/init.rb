@@ -13,19 +13,19 @@ module VoteableMongoidSolution
       name = 'voteable_benchmarks'
       host = 'localhost'
       config.master = Mongo::Connection.new.db(name)
-      config.autocreate_indexes = true
       config.logger = nil
     end
 
     Mongoid::database.connection.drop_database(Mongoid::database.name)
+
+    Post.create_indexes
   end
   
   def self.vote(user_id, post_id, happy)
     Post.vote(
       :voter_id => user_id,
       :votee_id => post_id,
-      :value => happy ? :up : :down,
-      :return_votee => true
+      :value => happy ? :up : :down
     )
   end
 
@@ -34,8 +34,7 @@ module VoteableMongoidSolution
       :voter_id => user_id, 
       :votee_id => post_id, 
       :value => happy ? :up : :down,
-      :unvote => true,
-      :return_votee => true
+      :unvote => true
     )
   end
 end

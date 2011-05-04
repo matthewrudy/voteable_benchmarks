@@ -5,5 +5,8 @@ class Post
   field :title
   field :content
   
-  voteable self, :up => VOTE_POINT[true], :down => VOTE_POINT[false], :index => !SKIP_ADDITIONAL_INDEXES
+  voteable self, 
+    :up => VOTE_POINT[true],
+    :down => VOTE_POINT[false],
+    :index => !SKIP_ADDITIONAL_INDEXES
 end
