@@ -20,7 +20,7 @@ module NaiveMongoidSolution
 
     Mongoid::database.connection.drop_database(Mongoid::database.name)
     Post.create_indexes
-    User.create_indexes
+    Vote.create_indexes
   end
   
   def self.vote(user_id, post_id, value)
