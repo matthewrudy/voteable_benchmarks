@@ -1,11 +1,6 @@
 module Voteable
   extend ::ActiveSupport::Concern
   
-  POINT = {
-    true => +1,
-    false => -2
-  }
-  
   module ClassMethods
     def vote(user_id, post_id, value)
       # Validate
@@ -22,7 +17,7 @@ module Voteable
         post = Post.find(post_id)
         
         # Update post
-        post.votes_point += POINT[value]
+        post.votes_point += VOTE_POINT[value]
         post.votes_count += 1
         if value == true
           post.up_votes_count += 1
@@ -30,6 +25,7 @@ module Voteable
           post.down_votes_count += 1
         end
         post.save
+        return post
       end
     end
 
@@ -46,7 +42,7 @@ module Voteable
         post = Post.find(post_id)
 
         # Update post
-        post.votes_point -= POINT[vote.value]
+        post.votes_point -= VOTE_POINT[vote.value]
         post.votes_count -= 1
         if vote.value == true
           post.up_votes_count -= 1
@@ -54,6 +50,7 @@ module Voteable
           post.down_votes_count -= 1
         end
         post.save
+        return post
       end
     end
   end
