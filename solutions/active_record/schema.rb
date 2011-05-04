@@ -31,6 +31,6 @@ ActiveRecord::Schema.define(:version => 1) do
     t.integer "user_id"
     t.boolean "value" # true => :up, false => :down
   end
-
-  add_index "votes", ["user_id", "post_id"], :name => "index_votes_on_user_id_and_post_id"
+  add_index "votes", ["post_id", "user_id"], :name => "index_votes_on_post_id_and_user_id", :unique => true
+  # add_index "votes", ["user_id", "post_id"], :name => "index_votes_on_user_id_and_post_id", :unique => true
 end
