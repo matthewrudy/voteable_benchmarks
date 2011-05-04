@@ -17,16 +17,10 @@ Results are validated after after each vote / unvote so validation take some tim
 
 === Environment
 
-Hardware
-
-  Macbook Pro
-  2.4 Ghz Intel Core 2 Duo
-  4GB 1067 MHz DDR3
-
-Software
-
+  Linode 768MB RAM
+  Ubuntu 10.04 Server 32-bit
   MySQL 5.1.41 Community Server
-  MongoDB 1.9.0
+  MongoDB 1.8.1
   Ruby 1.9.2p180
 
 === Without additional indexing
@@ -38,40 +32,40 @@ Software
 
 Note: skip_additional_indexes mean skip creating indexes that don't speed up voting and unvoting processes (e.g. counters, votes_point)
 
-ActiveRecordSolution: creating 20000 votes ...
+ActiveRecordSolution: creating 100000 votes ...
       user     system      total        real
- 62.440000   4.830000  67.270000 (117.430651)
+363.950000  22.420000 386.370000 (517.987945)
 
-ActiveRecordSolution: unvoting 20000 votes ...
+ActiveRecordSolution: unvoting 100000 votes ...
       user     system      total        real
- 44.750000   4.330000  49.080000 ( 88.308980)
+274.770000  21.710000 296.480000 (417.382183)
 
 
-NaiveMongoidSolution: creating 20000 votes ...
+NaiveMongoidSolution: creating 100000 votes ...
       user     system      total        real
- 34.950000   1.910000  36.860000 ( 43.569033)
+220.930000  19.050000 239.980000 (261.426427)
 
-NaiveMongoidSolution: unvoting 20000 votes ...
+NaiveMongoidSolution: unvoting 100000 votes ...
       user     system      total        real
- 29.770000   1.820000  31.590000 ( 38.227391)
+193.200000  18.840000 212.040000 (234.072731)
 
 
-VoteableMongoidSolution: creating 20000 votes ...
+VoteableMongoidSolution: creating 100000 votes ...
       user     system      total        real
- 18.310000   0.760000  19.070000 ( 31.941310)
+106.040000   5.420000 111.460000 (166.243362)
 
-VoteableMongoidSolution: unvoting 20000 votes ...
+VoteableMongoidSolution: unvoting 100000 votes ...
       user     system      total        real
- 18.020000   0.740000  18.760000 ( 28.685476)
+100.600000   5.190000 105.790000 (151.708914)
 
 
-VoteableMongoMapperSolution: creating 20000 votes ...
+VoteableMongoMapperSolution: creating 100000 votes ...
       user     system      total        real
- 22.150000   0.830000  22.980000 ( 36.326280)
+121.290000   5.050000 126.340000 (178.806645)
 
-VoteableMongoMapperSolution: unvoting 20000 votes ...
+VoteableMongoMapperSolution: unvoting 100000 votes ...
       user     system      total        real
- 19.440000   0.780000  20.220000 ( 30.389113)
+122.470000   5.080000 127.550000 (174.165707)
 
 
 === With additional indexing
@@ -81,37 +75,37 @@ VoteableMongoMapperSolution: unvoting 20000 votes ...
   ./run.rb voteable_mongoid
   ./run.rb voteable_mongo_mapper
 
-ActiveRecordSolution: creating 20000 votes ...
+ActiveRecordSolution: creating 100000 votes ...
       user     system      total        real
- 59.730000   4.400000  64.130000 (105.563681)
+357.690000  22.480000 380.170000 (518.983321)
 
-ActiveRecordSolution: unvoting 20000 votes ...
+ActiveRecordSolution: unvoting 100000 votes ...
       user     system      total        real
- 43.760000   4.190000  47.950000 ( 88.822737)
+277.260000  22.070000 299.330000 (435.261925)
 
 
-NaiveMongoidSolution: creating 20000 votes ...
+NaiveMongoidSolution: creating 100000 votes ...
       user     system      total        real
- 36.050000   2.020000  38.070000 ( 46.017391)
+227.400000  19.140000 246.540000 (269.461718)
 
-NaiveMongoidSolution: unvoting 20000 votes ...
+NaiveMongoidSolution: unvoting 100000 votes ...
       user     system      total        real
- 30.960000   1.950000  32.910000 ( 40.877817)
+195.160000  18.870000 214.030000 (235.952554)
 
 
-VoteableMongoidSolution: creating 20000 votes ...
+VoteableMongoidSolution: creating 100000 votes ...
       user     system      total        real
- 18.910000   0.810000  19.720000 ( 39.387077)
+106.140000   5.160000 111.300000 (208.754559)
 
-VoteableMongoidSolution: unvoting 20000 votes ...
+VoteableMongoidSolution: unvoting 100000 votes ...
       user     system      total        real
- 18.190000   0.760000  18.950000 ( 33.401199)
+102.540000   5.230000 107.770000 (170.509879)
 
 
-VoteableMongoMapperSolution: creating 20000 votes ...
+VoteableMongoMapperSolution: creating 100000 votes ...
       user     system      total        real
- 22.660000   0.840000  23.500000 ( 43.711484)
+126.760000   4.890000 131.650000 (229.736248)
 
-VoteableMongoMapperSolution: unvoting 20000 votes ...
+VoteableMongoMapperSolution: unvoting 100000 votes ...
       user     system      total        real
- 19.730000   0.780000  20.510000 ( 35.155238)
+125.200000   5.310000 130.510000 (195.187877)
