@@ -3,11 +3,15 @@
 Current benchmark code run a for loop to create / destroy votes sequently.
 It does not utilize database 100%.
 
+Results are validated after after each vote / unvote so validation take some time too.
+
+
 == Solutions
+
 * ActiveRecordSolution: Use votes table, store counters (votes_counts, up_votes_count, down_votes_count) and votes_point in posts
 * NaiveMongoidSolution: Equivalent to ActiveRecordSolution (use votes collection ...)
 * VoteableMongoidSolution: Use https://github.com/vinova/voteable_mongo gem
-
+* VoteableMongoMapperSolution: Use https://github.com/vinova/voteable_mongo gem
 
 == Benchmark Results
 
@@ -30,6 +34,7 @@ Software
   ./run.rb active_record skip_additional_indexes
   ./run.rb naive_mongoid skip_additional_indexes
   ./run.rb voteable_mongoid skip_additional_indexes
+  ./run.rb voteable_mongo_mapper skip_additional_indexes
 
 Note: skip_additional_indexes mean skip creating indexes that don't speed up voting and unvoting processes (e.g. counters, votes_point)
 
@@ -60,12 +65,21 @@ VoteableMongoidSolution: unvoting 10000 votes ...
   5.390000   0.320000   5.710000 ( 10.270138)
 
 
+VoteableMongoMapperSolution: creating 10000 votes ...
+      user     system      total        real
+ 10.170000   0.390000  10.560000 ( 17.715613)
+
+VoteableMongoMapperSolution: unvoting 10000 votes ...
+      user     system      total        real
+ 10.110000   0.410000  10.520000 ( 15.902357)
+
+
 === With additional indexing
 
   ./run.rb active_record
   ./run.rb naive_mongoid
   ./run.rb voteable_mongoid
-
+  ./run.rb voteable_mongo_mapper
 
 ActiveRecordSolution: creating 10000 votes ...
       user     system      total        real
@@ -87,8 +101,17 @@ NaiveMongoidSolution: unvoting 10000 votes ...
 
 VoteableMongoidSolution: creating 10000 votes ...
       user     system      total        real
- 21.310000   2.130000  23.440000 ( 38.093970)
+  9.040000   0.430000   9.470000 ( 19.341121)
 
 VoteableMongoidSolution: unvoting 10000 votes ...
       user     system      total        real
- 20.980000   2.110000  23.090000 ( 35.216096)
+  8.460000   0.380000   8.840000 ( 15.755251)
+
+
+VoteableMongoMapperSolution: creating 10000 votes ...
+      user     system      total        real
+ 10.390000   0.410000  10.800000 ( 20.183864)
+
+VoteableMongoMapperSolution: unvoting 10000 votes ...
+      user     system      total        real
+  9.940000   0.370000  10.310000 ( 17.084545)
