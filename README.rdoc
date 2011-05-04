@@ -33,39 +33,39 @@ Results are validated after after each vote / unvote so validation take some tim
 Note: skip_additional_indexes mean skip creating indexes that don't speed up voting and unvoting processes (e.g. counters, votes_point)
 
 ActiveRecordSolution: creating 100000 votes ...
-      user     system      total        real
-363.950000  22.420000 386.370000 (517.987945)
+        user     system      total        real
+  363.950000  22.420000 386.370000 (517.987945)
 
 ActiveRecordSolution: unvoting 100000 votes ...
-      user     system      total        real
-274.770000  21.710000 296.480000 (417.382183)
+        user     system      total        real
+  274.770000  21.710000 296.480000 (417.382183)
 
 
 NaiveMongoidSolution: creating 100000 votes ...
       user     system      total        real
-220.930000  19.050000 239.980000 (261.426427)
+  220.930000  19.050000 239.980000 (261.426427)
 
 NaiveMongoidSolution: unvoting 100000 votes ...
-      user     system      total        real
-193.200000  18.840000 212.040000 (234.072731)
+        user     system      total        real
+  193.200000  18.840000 212.040000 (234.072731)
 
 
 VoteableMongoidSolution: creating 100000 votes ...
-      user     system      total        real
-106.040000   5.420000 111.460000 (166.243362)
+        user     system      total        real
+  106.040000   5.420000 111.460000 (166.243362)
 
 VoteableMongoidSolution: unvoting 100000 votes ...
-      user     system      total        real
-100.600000   5.190000 105.790000 (151.708914)
+        user     system      total        real
+  100.600000   5.190000 105.790000 (151.708914)
 
 
 VoteableMongoMapperSolution: creating 100000 votes ...
-      user     system      total        real
-121.290000   5.050000 126.340000 (178.806645)
+        user     system      total        real
+  121.290000   5.050000 126.340000 (178.806645)
 
 VoteableMongoMapperSolution: unvoting 100000 votes ...
-      user     system      total        real
-122.470000   5.080000 127.550000 (174.165707)
+        user     system      total        real
+  122.470000   5.080000 127.550000 (174.165707)
 
 
 === With additional indexing
@@ -76,36 +76,36 @@ VoteableMongoMapperSolution: unvoting 100000 votes ...
   ./run.rb voteable_mongo_mapper
 
 ActiveRecordSolution: creating 100000 votes ...
-      user     system      total        real
-357.690000  22.480000 380.170000 (518.983321)
+        user     system      total        real
+  357.690000  22.480000 380.170000 (518.983321)
 
 ActiveRecordSolution: unvoting 100000 votes ...
-      user     system      total        real
-277.260000  22.070000 299.330000 (435.261925)
+        user     system      total        real
+  277.260000  22.070000 299.330000 (435.261925)
 
 
 NaiveMongoidSolution: creating 100000 votes ...
-      user     system      total        real
-227.400000  19.140000 246.540000 (269.461718)
+        user     system      total        real
+  227.400000  19.140000 246.540000 (269.461718)
 
 NaiveMongoidSolution: unvoting 100000 votes ...
-      user     system      total        real
-195.160000  18.870000 214.030000 (235.952554)
+        user     system      total        real
+  195.160000  18.870000 214.030000 (235.952554)
 
 
 VoteableMongoidSolution: creating 100000 votes ...
-      user     system      total        real
-106.140000   5.160000 111.300000 (208.754559)
+        user     system      total        real
+  106.140000   5.160000 111.300000 (208.754559)
 
 VoteableMongoidSolution: unvoting 100000 votes ...
-      user     system      total        real
-102.540000   5.230000 107.770000 (170.509879)
+        user     system      total        real
+  102.540000   5.230000 107.770000 (170.509879)
 
 
 VoteableMongoMapperSolution: creating 100000 votes ...
-      user     system      total        real
-126.760000   4.890000 131.650000 (229.736248)
+        user     system      total        real
+  126.760000   4.890000 131.650000 (229.736248)
 
 VoteableMongoMapperSolution: unvoting 100000 votes ...
-      user     system      total        real
-125.200000   5.310000 130.510000 (195.187877)
+        user     system      total        real
+  125.200000   5.310000 130.510000 (195.187877)
