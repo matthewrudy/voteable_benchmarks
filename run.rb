@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-TOTAL_USERS = 20
-TOTAL_POSTS = 1000
+TOTAL_USERS = 1000
+TOTAL_POSTS = 10
 TOTAL_VOTES = TOTAL_USERS * TOTAL_POSTS
 
 require 'rubygems'
@@ -30,7 +30,18 @@ Benchmark.bm do |bm|
   bm.report { solution.create_votes }
 end
 
+puts "\n#{solution}: creating #{TOTAL_VOTES} duplicate votes ..."
+Benchmark.bm do |bm|
+  bm.report { solution.create_votes }
+end
+
 puts "\n#{solution}: unvoting #{TOTAL_VOTES} votes ..."
 Benchmark.bm do |bm|
   bm.report { solution.unvote_votes }
 end
+
+puts "\n#{solution}: unvoting #{TOTAL_VOTES} votes when they havent voted..."
+Benchmark.bm do |bm|
+  bm.report { solution.unvote_votes }
+end
+
